@@ -1,0 +1,15 @@
+<header>
+    <mat-toolbar color="primary">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item [routerLink]="['']">Home</button>
+            <button mat-menu-item [routerLink]="['/todos']">Todos</button>
+        </mat-menu>
+        <span class="flex-expand"></span>
+        <button mat-button *ngIf="!basicAuthenticationService.isUserLoggedIn()" [routerLink]="['/login']">Login</button>
+        <button mat-button *ngIf="basicAuthenticationService.isUserLoggedIn()"
+            [routerLink]="['/logout']">Logout</button>
+    </mat-toolbar>
+</header>

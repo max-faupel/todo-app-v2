@@ -1,0 +1,7 @@
+<h1>Welcome</h1>
+<div class="container" *ngIf="!authService.isUserLoggedIn()">
+  Login to manage your todos
+</div>
+<div class="container" *ngIf="authService.isUserLoggedIn()">
+  Welcome {{user}}, you can manage your todos <a routerLink="/todos">here</a>
+</div>
