@@ -1,6 +1,6 @@
 <header>
     <mat-toolbar color="primary">
-        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Open menu">
             <mat-icon>menu</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
@@ -8,8 +8,13 @@
             <button mat-menu-item [routerLink]="['/todos']">Todos</button>
         </mat-menu>
         <span class="flex-expand"></span>
-        <button mat-button *ngIf="!basicAuthenticationService.isUserLoggedIn()" [routerLink]="['/login']">Login</button>
-        <button mat-button *ngIf="basicAuthenticationService.isUserLoggedIn()"
-            [routerLink]="['/logout']">Logout</button>
+        <button mat-icon-button *ngIf="!basicAuthenticationService.isUserLoggedIn()" [routerLink]="['/login']"
+            matTooltip="Login">
+            <mat-icon>login</mat-icon>
+        </button>
+        <button mat-icon-button *ngIf="basicAuthenticationService.isUserLoggedIn()" [routerLink]="['/logout']"
+            matTooltip="Logout">
+            <mat-icon>logout</mat-icon>
+        </button>
     </mat-toolbar>
 </header>
