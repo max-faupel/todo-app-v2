@@ -44,7 +44,7 @@ export class TodoComponent implements OnInit {
   }
 
   saveTodo() {
-    let todo = new Todo(this.todoForm.value.description || '', this.todoForm.value.done || false, this.todoForm.value.targetDate.toDate())
+    let todo = new Todo(this.todoForm.value.description || '', this.todoForm.value.done || false, this.todoForm.value.targetDate)
 
     if (this.id === -1) {
       console.log(`Creating todo: ${JSON.stringify(todo)}`)
