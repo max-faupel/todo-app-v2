@@ -23,6 +23,9 @@ import {
   MAT_MOMENT_DATE_ADAPTER_OPTIONS,
   MatMomentDateModule,
 } from '@angular/material-moment-adapter';
+import { MatListModule } from '@angular/material/list';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ErrorComponent } from './error/error.component';
@@ -31,15 +34,13 @@ import { ListTodosComponent } from './list-todos/list-todos.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { MenuComponent } from './menu/menu.component';
+import { TodoNestedResolver } from './service/data/todo-resolver.service';
 import { HttpInterceptorBasicAuthService } from './service/http/http-interceptor-basic-auth.service';
-import { TodoComponent } from './todo/todo.component';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { StoreModule } from '@ngrx/store';
 import { paginationReducer } from './state/pagination.reducer';
 import { TodoGridComponent } from './todo-grid/todo-grid.component';
-import { MatListModule } from '@angular/material/list';
 import { TodoNestedComponent } from './todo-grid/todo-nested/todo-nested.component';
-import { TodoNestedResolver } from './service/data/todo-resolver.service';
+import { TodoComponent } from './todo/todo.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 export const DATE_FORMATS = {
   parse: {
@@ -91,6 +92,7 @@ export const DATE_FORMATS = {
     HttpClientModule,
     StoreModule.forRoot({ pagination: paginationReducer }),
     MatListModule,
+    MatSnackBarModule,
   ],
   providers: [
     {
