@@ -1,0 +1,18 @@
+<div class="grid-container">
+    <div>
+        <!-- <a *ngFor="let todo of todos" [routerLink]="['/todoGrid', todo.id]">{{todo.description}}</a> -->
+        <mat-selection-list hideSingleSelectionIndicator="true" multiple="false"
+            (selectionChange)="navigateTo(todoSelection.selectedOptions.selected[0].value)" #todoSelection>
+            <mat-list-option *ngFor="let todo of todos" [value]="todo.id">
+                {{todo.description}}
+            </mat-list-option>
+        </mat-selection-list>
+    </div>
+    <!-- <p>
+        Option selected: {{todoSelection.selectedOptions.hasValue() ? todoSelection.selectedOptions.selected[0].value :
+        'None'}}
+    </p> -->
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+</div>

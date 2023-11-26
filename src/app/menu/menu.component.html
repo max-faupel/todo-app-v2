@@ -6,6 +6,7 @@
         <mat-menu #menu="matMenu">
             <button mat-menu-item [routerLink]="['']">Home</button>
             <button mat-menu-item [routerLink]="['/todos']">Todos</button>
+            <button mat-menu-item [routerLink]="['/todoGrid']">Todos Grid</button>
         </mat-menu>
         <span class="flex-expand"></span>
         <button mat-icon-button *ngIf="!basicAuthenticationService.isUserLoggedIn()" [routerLink]="['/login']"

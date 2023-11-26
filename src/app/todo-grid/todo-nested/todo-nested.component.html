@@ -1,0 +1,27 @@
+<h1>Todo</h1>
+<div class="container">
+  <form [formGroup]="todoForm" (ngSubmit)="saveTodo()">
+    <p>
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="description">
+        <mat-error *ngIf="todoForm.value.description">Description is required!</mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-checkbox formControlName="done">Done</mat-checkbox>
+    </p>
+    <p>
+      <mat-form-field>
+        <mat-label>Target Date</mat-label>
+        <input matInput formControlName="targetDate" [matDatepicker]="picker">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+    </p>
+    <div class="button-row">
+      <button mat-raised-button color="accent" type="submit" [disabled]="!todoForm.valid">Save</button>
+    </div>
+  </form>
+</div>

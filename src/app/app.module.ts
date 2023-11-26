@@ -36,6 +36,10 @@ import { TodoComponent } from './todo/todo.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { StoreModule } from '@ngrx/store';
 import { paginationReducer } from './state/pagination.reducer';
+import { TodoGridComponent } from './todo-grid/todo-grid.component';
+import { MatListModule } from '@angular/material/list';
+import { TodoNestedComponent } from './todo-grid/todo-nested/todo-nested.component';
+import { TodoNestedResolver } from './service/data/todo-resolver.service';
 
 export const DATE_FORMATS = {
   parse: {
@@ -60,6 +64,8 @@ export const DATE_FORMATS = {
     FooterComponent,
     LogoutComponent,
     TodoComponent,
+    TodoGridComponent,
+    TodoNestedComponent,
   ],
   imports: [
     BrowserModule,
@@ -84,6 +90,7 @@ export const DATE_FORMATS = {
     MatTooltipModule,
     HttpClientModule,
     StoreModule.forRoot({ pagination: paginationReducer }),
+    MatListModule,
   ],
   providers: [
     {
@@ -93,6 +100,7 @@ export const DATE_FORMATS = {
     },
     { provide: MAT_DATE_FORMATS, useValue: DATE_FORMATS },
     { provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: { useUtc: true } },
+    TodoNestedResolver,
   ],
   bootstrap: [AppComponent],
 })
